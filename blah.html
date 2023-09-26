@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Selection Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        body, h1, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #131E4B, #551D9C, #30B5AF);
+            text-align: center;
+            color: #2B303A;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            background-color: #551D9C;
+            color: #fff;
+            padding: 20px;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.7); /* Increased transparency (lower alpha value) */
+            border-radius: 10px; /* Rounded corners for the form container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-container:hover {
+            transform: scale(1.02);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #131E4B;
+        }
+
+        .form-control {
+            padding: 10px;
+            border: none;
+            border-radius: 10px; /* Rounded corners for the input boxes */
+            border-bottom: 2px solid #30B5AF;
+            background-color: #fff;
+            color: #131E4B;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2B303A;
+        }
+
+        .btn-primary {
+            background-color: #30B5AF;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 10px; /* Rounded corners for the button */
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #551D9C;
+        }
+
+        /* AR and VR elements */
+        .ar-vr-icon {
+            font-size: 48px;
+            margin-top: 20px;
+            color: #551D9C;
+        }
+
+        .ar-vr-description {
+            font-size: 18px;
+            color: #2B303A;
+            margin-top: 10px;
+        }
+
+        /* Problem statement container */
+        .problem-statement-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Problem statement select */
+        #problem {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px; /* Rounded corners for the select box */
+            background-color: #fff;
+            color: #000; /* Darker text color for better visibility */
+            font-size: 18px; /* Increased font size for better visibility */
+        }
+
+        /* Input section label */
+        .problem-input-label {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #131E4B; /* Label text color */
+        }
+
+        /* Input section input */
+        .problem-input {
+            padding: 10px;
+            border: none;
+            border-radius: 10px; /* Rounded corners for the input box */
+            border-bottom: 2px solid #30B5AF; /* Bottom border */
+            background-color: #fff;
+            color: #131E4B; /* Input text color */
+            font-size: 16px;
+            width: 100%;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Team Selection Form</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+                <form id="teamForm">
+                    <!-- Theme selection (Bootstrap select) -->
+                    <div class="mb-3">
+                        <label for="theme" class="form-label">Select a Theme:</label>
+                        <select id="theme" name="theme" class="form-select">
+                            <option value="theme1">Theme 1</option>
+                            <option value="theme2">Theme 2</option>
+                            <option value="theme3">Theme 3</option>
+                        </select>
+                    </div>
+
+                    <!-- Team selection (Bootstrap select) -->
+                    <div class="mb-3">
+                        <label for="team" class="form-label">Select Your Team:</label>
+                        <select id="team" name="team" class="form-select">
+                            <!-- Options for teams will be populated dynamically using JavaScript -->
+                        </select>
+                    </div>
+
+                    <!-- Team Name (Bootstrap input) -->
+                    <div class="mb-3">
+                        <label for="teamName" class="form-label">Team Name:</label>
+                        <input type="text" id="teamName" name="teamName" class="form-control" required>
+                    </div>
+
+                    <!-- Team Lead Name (Bootstrap input) -->
+                    <div class="mb-3">
+                        <label for="teamLeadName" class="form-label">Team Lead Name:</label>
+                        <input type="text" id="teamLeadName" name="teamLeadName" class="form-control" required>
+                    </div>
+
+                    <!-- Team Lead Email (Bootstrap input) -->
+                    <div class="mb-3">
+                        <label for="teamLeadEmail" class="form-label">Team Lead Email:</label>
+                        <input type="email" id="teamLeadEmail" name="teamLeadEmail" class="form-control" required>
+                    </div>
+
+                    <!-- Team Lead Phone Number (Bootstrap input) -->
+                    <div class="mb-3">
+                        <label for="teamLeadPhone" class="form-label">Team Lead Phone Number:</label>
+                        <input type="tel" id="teamLeadPhone" name="teamLeadPhone" class="form-control" required>
+                    </div>
+
+                    <!-- Problem statement container -->
+                    <div class="problem-statement-container">
+                        <label for="problem" class="form-label">Select a Problem Statement:</label>
+                        <select id="problem" name="problem"></select>
+
+                        
+
+                    <!-- Submit button (Bootstrap button) -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- AR and VR elements -->
+        <div class="text-center">
+            <i class="fas fa-vr-cardboard ar-vr-icon"></i>
+            <p class="ar-vr-description">Experience AR and VR in our theme selection!</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="blah.js"></script>
+</body>
+</html>
